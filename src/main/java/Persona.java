@@ -47,6 +47,7 @@ public class Persona {
         /**
          * Imprime el nombre y el DNI.
          */
+
         public void imprime() {
             System.out.println("Nombre: " + nombre);
             System.out.println("DNI: " + dni);

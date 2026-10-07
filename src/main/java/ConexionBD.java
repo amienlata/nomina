@@ -9,50 +9,17 @@ import java.sql.Statement;
 
 public class ConexionBD {
 
-    /** Nombre del fichero de la base de datos. */
-    private static final String URL = "jdbc:sqlite:nominas.db";
+    private static final String URL = "jdbc:mariadb://localhost:3306/nomina";
 
-    /**
-     * Obtiene una conexión con la base de datos.
-     *
-     * @return conexión
-     * @throws SQLException si ocurre un error
-     */
+    private static final String USUARIO = "root";
+    private static final String PASSWORD = "123456";
 
     public static Connection conectar() throws SQLException {
 
-        return DriverManager.getConnection(URL);
-    }
-
-    /**
-     * Crea las tablas necesarias.
-     *
-     * @throws SQLException si ocurre un error
-     */
-
-    public static void crearTablas() throws SQLException {
-
-        String sqlEmpleados =
-                "CREATE TABLE IF NOT EXISTS Empleados (" +
-                        "dni TEXT PRIMARY KEY, " +
-                        "nombre TEXT NOT NULL, " +
-                        "sexo TEXT NOT NULL, " +
-                        "categoria INTEGER NOT NULL, " +
-                        "anyos INTEGER NOT NULL" +
-                        ")";
-
-        String sqlNominas =
-                "CREATE TABLE IF NOT EXISTS Nominas (" +
-                        "dni TEXT PRIMARY KEY, " +
-                        "sueldo INTEGER NOT NULL, " +
-                        "FOREIGN KEY (dni) REFERENCES Empleados(dni)" +
-                        ")";
-
-        try (Connection conexion = conectar();
-             Statement sentencia = conexion.createStatement()) {
-
-            sentencia.executeUpdate(sqlEmpleados);
-            sentencia.executeUpdate(sqlNominas);
-        }
+        return DriverManager.getConnection(
+                URL,
+                USUARIO,
+                PASSWORD
+        );
     }
 }

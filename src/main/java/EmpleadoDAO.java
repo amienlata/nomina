@@ -54,8 +54,8 @@ public class EmpleadoDAO {
         int sueldo = Nomina.calcularSueldo(empleado);
 
         String sql =
-                "INSERT OR REPLACE INTO Nominas " +
-                        "(dni, sueldo) VALUES (?, ?)";
+                "INSERT INTO Nominas (dni, sueldo) VALUES (?, ?) " +
+                        "ON DUPLICATE KEY UPDATE sueldo = VALUES(sueldo)";
 
         try (Connection conexion = ConexionBD.conectar();
              PreparedStatement ps =

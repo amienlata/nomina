@@ -6,6 +6,7 @@ import java.util.Scanner;
 /**
  * Programa principal de gestión de nóminas.
  */
+
 public class CalculaNominas {
 
     /** Scanner para leer datos del teclado. */
@@ -21,12 +22,10 @@ public class CalculaNominas {
      *
      * @param args argumentos
      */
+
     public static void main(String[] args) {
 
         try {
-
-            // Crear las tablas si no existen.
-            ConexionBD.crearTablas();
 
             // Cargar los empleados iniciales.
             cargarEmpleadosIniciales();
@@ -63,6 +62,7 @@ public class CalculaNominas {
      *
      * Si el empleado ya existe, no se vuelve a insertar.
      */
+
     private static void cargarEmpleadosIniciales()
             throws IOException,
             DatosNoCorrectosException,
@@ -83,6 +83,7 @@ public class CalculaNominas {
     /**
      * Menú principal.
      */
+
     private static void menu() {
 
         int opcion;
@@ -167,6 +168,7 @@ public class CalculaNominas {
     /**
      * Muestra todos los empleados.
      */
+
     private static void mostrarEmpleados()
             throws SQLException {
 
@@ -200,6 +202,7 @@ public class CalculaNominas {
     /**
      * Muestra el salario de un empleado.
      */
+
     private static void mostrarSalario()
             throws SQLException {
 
@@ -227,6 +230,7 @@ public class CalculaNominas {
     /**
      * Submenú para modificar empleados.
      */
+
     private static void submenuModificar() {
 
         int opcion;
@@ -294,6 +298,7 @@ public class CalculaNominas {
     /**
      * Modifica el nombre.
      */
+
     private static void modificarNombre()
             throws SQLException {
 
@@ -319,6 +324,7 @@ public class CalculaNominas {
     /**
      * Modifica el sexo.
      */
+
     private static void modificarSexo()
             throws SQLException {
 
@@ -344,6 +350,7 @@ public class CalculaNominas {
     /**
      * Modifica la categoría.
      */
+
     private static void modificarCategoria()
             throws SQLException,
             DatosNoCorrectosException {
@@ -370,6 +377,7 @@ public class CalculaNominas {
     /**
      * Modifica los años trabajados.
      */
+
     private static void modificarAnyos()
             throws SQLException,
             DatosNoCorrectosException {
@@ -404,6 +412,7 @@ public class CalculaNominas {
      * Modifica todos los datos salvo el DNI.
      * El salario se recalcula automáticamente.
      */
+
     private static void modificarTodos()
             throws SQLException,
             DatosNoCorrectosException {
@@ -457,6 +466,7 @@ public class CalculaNominas {
      * @return empleado encontrado
      * @throws SQLException si ocurre un error
      */
+
     private static Empleado buscarEmpleadoPorTeclado()
             throws SQLException {
 
@@ -481,6 +491,7 @@ public class CalculaNominas {
     /**
      * Recalcula el sueldo de un empleado.
      */
+
     private static void recalcularSueldo()
             throws SQLException {
 
@@ -499,6 +510,7 @@ public class CalculaNominas {
     /**
      * Recalcula todos los salarios.
      */
+
     private static void recalcularTodos()
             throws SQLException {
 
@@ -512,6 +524,7 @@ public class CalculaNominas {
     /**
      * Realiza una copia de seguridad.
      */
+
     private static void backup()
             throws SQLException,
             IOException {
@@ -541,6 +554,7 @@ public class CalculaNominas {
     /**
      * Da de alta un empleado individual.
      */
+
     private static void altaEmpleado()
             throws SQLException,
             DatosNoCorrectosException {
@@ -599,6 +613,7 @@ public class CalculaNominas {
     /**
      * Alta de empleados a partir de empleadosNuevos.txt.
      */
+
     private static void altaPorLotes()
             throws IOException,
             DatosNoCorrectosException,
@@ -634,6 +649,7 @@ public class CalculaNominas {
      * @param mensaje mensaje
      * @return entero
      */
+
     private static int leerEntero(String mensaje) {
 
         while (true) {

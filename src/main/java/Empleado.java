@@ -16,13 +16,12 @@ public class Empleado extends Persona{
      * @param anyos años trabajados
      * @throws DatosNoCorrectosException si los datos no son válidos
      */
-    public Empleado(String nombre, String dni, char sexo,
-                    int categoria, int anyos)
+    public Empleado(String nombre, String dni, char sexo, int categoria, int anyos)
             throws DatosNoCorrectosException {
 
         super(nombre, dni, sexo);
 
-        comprobarDatos(categoria, anyos);
+        comprobarDatos(categoria, anyos, dni, sexo);
 
         this.categoria = categoria;
         this.anyos = anyos;
@@ -62,10 +61,10 @@ public class Empleado extends Persona{
         this.categoria = categoria;
     }
 
-    private void comprobarDatos(int categoria, int anyos)
+    private void comprobarDatos(int categoria, int anyos, String dni, char sexo)
             throws DatosNoCorrectosException {
 
-        if (categoria < 1 || categoria > 10 || anyos < 0) {
+        if (categoria < 1 || categoria > 10 || anyos < 0 || dni.length() < 9 || dni.length() > 9 || (sexo != 'M' && sexo != 'F')) {
             throw new DatosNoCorrectosException("Datos no correctos");
         }
     }
